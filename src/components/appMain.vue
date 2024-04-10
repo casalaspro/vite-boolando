@@ -111,90 +111,122 @@
 
 .card{
   padding: 10px;
-}
 
-.card:nth-child(3n + 1){
+  &:nth-child(3n + 1){
   padding-left: 0;
-}
+  }
 
-.card:nth-child(3n){
-  padding-right: 0;
-}
+  &:nth-child(3n){
+    padding-right: 0;
+  }
 
-.card--image{
+  .card--image{
   height: 450px;
   position: relative;
-}
 
-.card img{
+    .badges{
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+    
+      .discount-percentage{
+        background-color: red;
+      }
+
+      .eco-badge{
+        background-color: green;
+      }
+
+      .badge{
+        padding: 5px;
+      }
+    }
+
+    .favorites-icon{
+    padding: 15px;
+    background-color: white;
+    position: absolute;
+    top: 8px;
+    right: 0;
+
+      &:hover{
+        color: red;
+      }
+    }
+
+    &:hover > img:nth-child(2){
+    opacity: 100%;
+    transition-duration: 300ms;
+    transition-property: opacity;
+    }
+
+  }
+
+  img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   position: relative;
 
-}
+    &:nth-child(2){
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0%;
+    }
+  }
 
-.card img:nth-child(2){
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0%;
-}
 
-.card--image:hover > img:nth-child(2){
-  opacity: 100%;
-  transition-duration: 300ms;
-  transition-property: opacity;
-}
+  .price{
 
-.favorites-icon{
-  padding: 15px;
-  background-color: white;
-  position: absolute;
-  top: 8px;
-  right: 0;
-}
+    .price-text{
+      margin-right: 5px;
+      font-size: small;
+    }
 
-.favorites-icon:hover{
-  color: red;
-}
+    .price-old{
+      text-decoration: line-through;
+    }
 
-.price-text{
-  margin-right: 5px;
-  font-size: small;
-}
+    .price-now {
+      color: red;
+      font-weight: 600;
+    }
 
-.price-old{
-  text-decoration: line-through;
-}
+  }
 
-.price-now {
-  color: red;
-  font-weight: 600;
-}
-
-.badge{
-  padding: 5px;
-}
-
-.card--image .badges{
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-}
-
-.brand-title{
+  .brand-title{
   font-weight: 100;
+  }
 }
 
-.discount-percentage{
-  background-color: red;
-}
 
-.eco-badge{
-  background-color: green;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </style>
