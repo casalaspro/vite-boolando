@@ -205,7 +205,7 @@
   padding: 10px;
 }
 
-.card:nth-child(3n + 1){
+:nth-child(3n + 1){
   padding-left: 0;
 }
 
