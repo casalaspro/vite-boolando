@@ -77,121 +77,29 @@
     <section class="showcase">
       <div class="container">
         <div class="row">
-          <div v-for="product in products" class="card_repetition col-4">
-            <div class="card border-black ">
-              <div class="card--image border-black">
-                <img :src="getImagePath(product.firstImage)" alt="">
-                <img :src="getImagePath(product.secondImage)" alt="">
-                <span class="favorites-icon"><i class="fa-solid fa-heart"></i></span>
-                <div class="badges white">
-                  <span class="badge discount-percentage">-{{ product.discount }}&percnt;</span>
-                  <span class="badge eco-badge">{{ product.attribute }}</span>
-                </div>
-              </div>
-              <div class="card--titles">
-                <h4 class="brand-title">{{ product.brandProduct }}</h4>
-                <h2 class="product-name">{{ product.titleProduct }}</h2>
-                <div class="price">
-                  <span class="price-text price-now">{{ getActualPrice(product.discount, product.oldPrice) }} &euro;</span><span class="price-text price-old">{{ product.oldPrice }}&euro;</span>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- <div class="card border-black col-4">
+          <div v-for="product in products" class="card border-black col-4">
+              
             <div class="card--image border-black">
-              <img src="./img/2.webp" alt="">
-              <img src="./img/2b.webp" alt="">
+              <img :src="getImagePath(product.firstImage)" alt="">
+              <img :src="getImagePath(product.secondImage)" alt="">
               <span class="favorites-icon"><i class="fa-solid fa-heart"></i></span>
               <div class="badges white">
-                <span class="badge discount-percentage">-30&percnt;</span>
-                
+                <span class="badge discount-percentage">-{{ product.discount }}&percnt;</span>
+                <span class="badge eco-badge">{{ product.attribute }}</span>
               </div>
             </div>
-            <div class="card--titles">
-              <h4 class="brand-title">Levi's</h4>
-              <h2 class="product-name">RELAXED FEET TEE UNISEX</h2>
-              <div class="price">
-                <span class="price-text price-now">20,99&euro;</span><span class="price-text price-old">29,99&euro;</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="card border-black col-4">
-            <div class="card--image border-black">
-              <img src="./img/3.webp" alt="">
-              <img src="./img/3b.webp" alt="">
-              <span class="favorites-icon"><i class="fa-solid fa-heart"></i></span>
-              <div class="badges white">
-                <span class="badge discount-percentage">-30&percnt;</span>
-                
-              </div>
-            </div>
             <div class="card--titles">
-              <h4 class="brand-title">Levi's</h4>
-              <h2 class="product-name">RELAXED FEET TEE UNISEX</h2>
+              <h4 class="brand-title">{{ product.brandProduct }}</h4>
+              <h2 class="product-name">{{ product.titleProduct }}</h2>
               <div class="price">
-                <span class="price-text price-now">199,99&euro;</span><span class="price-text price-old">184,99&euro;</span>
+                <span class="price-text price-now">{{ getActualPrice(product.discount, product.oldPrice) }} &euro;
+                </span><span class="price-text price-old">{{ product.oldPrice }}&euro;</span>
               </div>
             </div>
-          </div>
 
-          <div class="card border-black col-4">
-            <div class="card--image border-black">
-              <img src="./img/4.webp" alt="">
-              <img src="./img/4b.webp" alt="">
-              <span class="favorites-icon"><i class="fa-solid fa-heart"></i></span>
-              <div class="badges white">
-                <span class="badge discount-percentage">-50&percnt;</span>
-                <span class="badge eco-badge">Sostenibilità</span>
-              </div>
-            </div>
-            <div class="card--titles">
-              <h4 class="brand-title">Levi's</h4>
-              <h2 class="product-name">RELAXED FEET TEE UNISEX</h2>
-              <div class="price">
-                <span class="price-text price-now">11,99&euro;</span><span class="price-text price-old">29,99&euro;</span>
-              </div>
-            </div>
           </div>
-
-          <div class="card border-black col-4">
-            <div class="card--image border-black">
-              <img src="./img/5.webp" alt="">
-              <img src="./img/5b.webp" alt="">
-              <span class="favorites-icon"><i class="fa-solid fa-heart"></i></span>
-              <div class="badges white">
-                <span class="badge discount-percentage">-50&percnt;</span>
-                <span class="badge eco-badge">Sostenibilità</span>
-              </div>
-            </div>
-            <div class="card--titles">
-              <h4 class="brand-title">Levi's</h4>
-              <h2 class="product-name">RELAXED FEET TEE UNISEX</h2>
-              <div class="price">
-                <span class="price-text price-now">11,99&euro;</span><span class="price-text price-old">29,99&euro;</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card border-black col-4">
-            <div class="card--image border-black">
-              <img src="./img/6.webp" alt="">
-              <img src="./img/6b.webp" alt="">
-              <span class="favorites-icon"><i class="fa-solid fa-heart"></i></span>
-              <div class="badges white">
-                <span class="badge discount-percentage">-50&percnt;</span>
-                <span class="badge eco-badge">Sostenibilità</span>
-              </div>
-            </div>
-            <div class="card--titles">
-              <h4 class="brand-title">Levi's</h4>
-              <h2 class="product-name">RELAXED FEET TEE UNISEX</h2>
-              <div class="price">
-                <span class="price-text price-now">11,99&euro;</span><span class="price-text price-old">29,99&euro;</span>
-              </div>
-            </div>
-          </div> -->
 
         </div>
       </div>
@@ -205,7 +113,7 @@
   padding: 10px;
 }
 
-:nth-child(3n + 1){
+.card:nth-child(3n + 1){
   padding-left: 0;
 }
 
