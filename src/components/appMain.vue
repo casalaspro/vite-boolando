@@ -39,9 +39,12 @@
     methods:{
       getImagePath(img){
       return new URL(`../assets/${img}`, import.meta.url).href
-    }
+      },
+      getActualPrice(discount, oldPrice){
+        return oldPrice-(oldPrice/100*discount)
+      }
     },
-    
+
   }
 </script>
 
@@ -65,7 +68,7 @@
               <h4 class="brand-title">Levi's</h4>
               <h2 class="product-name">RELAXED FEET TEE UNISEX</h2>
               <div class="price">
-                <span class="price-text price-now">11,99&euro;</span><span class="price-text price-old">29,99&euro;</span>
+                <span class="price-text price-now">{{ getActualPrice(product.discount, product.oldPrice) }} &euro;</span><span class="price-text price-old">{{ product.oldPrice }}&euro;</span>
               </div>
             </div>
           </div>
