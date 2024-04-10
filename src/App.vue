@@ -1,11 +1,16 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import appHeader from './components/appHeader.vue';
+import appMain from './components/appMain.vue'
 
 export default {
   components :{
-    HelloWorld,
+    appHeader,
+    appMain,
   },
   data(){
+    return{
+
+    }
 
   },
   mounted(){
@@ -18,11 +23,12 @@ export default {
 </script>
 
 <template>
-  <HelloWorld/>
+  <appHeader/>
+  <appMain/>
   
 </template>
 
-<style>
+<style lang="scss">
 
 @use "./style/general.scss";
 
