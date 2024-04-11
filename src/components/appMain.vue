@@ -1,73 +1,79 @@
 <script>
+
+  import appCard from "./appCard.vue";
+  import dbProduct from "../assets/db.json";
+
   export default{
     data(){
       return{
-        products: [
-        {
-          firstImage: "1.webp",
-          secondImage: "1b.webp",
-          titleProduct: "RELAXED FEET TEE UNISEX",
-          brandProduct: "Levi's",
-          discount: 50,
-          oldPrice: 29.99,
-          attribute: "Sostenibilità"
-        },
-        {
-          firstImage: "2.webp",
-          secondImage: "2b.webp",
-          titleProduct: "RELAXED FEET TEE UNISEX",
-          brandProduct: "Levi's",
-          discount: 50,
-          oldPrice: 29.99,
-          attribute: "Sostenibilità"
-        },
-        {
-          firstImage: "3.webp",
-          secondImage: "3b.webp",
-          titleProduct: "RELAXED FEET TEE UNISEX",
-          brandProduct: "Levi's",
-          discount: 50,
-          oldPrice: 29.99,
-          attribute: "Sostenibilità"
-        },
-        {
-          firstImage: "4.webp",
-          secondImage: "4b.webp",
-          titleProduct: "RELAXED FEET TEE UNISEX",
-          brandProduct: "Levi's",
-          discount: 50,
-          oldPrice: 29.99,
-          attribute: "Sostenibilità"
-        },
-        {
-          firstImage: "5.webp",
-          secondImage: "5b.webp",
-          titleProduct: "RELAXED FEET TEE UNISEX",
-          brandProduct: "Levi's",
-          discount: 50,
-          oldPrice: 29.99,
-          attribute: "Sostenibilità"
-        },
-        {
-          firstImage: "6.webp",
-          secondImage: "6b.webp",
-          titleProduct: "RELAXED FEET TEE UNISEX",
-          brandProduct: "Levi's",
-          discount: 50,
-          oldPrice: 29.99,
-          attribute: "Sostenibilità"
-        }
-        ]
+        products: dbProduct.products,
+        // products: [
+        // {
+        //   firstImage: "1.webp",
+        //   secondImage: "1b.webp",
+        //   titleProduct: "RELAXED FEET TEE UNISEX",
+        //   brandProduct: "Levi's",
+        //   discount: 50,
+        //   oldPrice: 29.99,
+        //   attribute: "Sostenibilità"
+        // },
+        // {
+        //   firstImage: "2.webp",
+        //   secondImage: "2b.webp",
+        //   titleProduct: "RELAXED FEET TEE UNISEX",
+        //   brandProduct: "Levi's",
+        //   discount: 50,
+        //   oldPrice: 29.99,
+        //   attribute: "Sostenibilità"
+        // },
+        // {
+        //   firstImage: "3.webp",
+        //   secondImage: "3b.webp",
+        //   titleProduct: "RELAXED FEET TEE UNISEX",
+        //   brandProduct: "Levi's",
+        //   discount: 50,
+        //   oldPrice: 29.99,
+        //   attribute: "Sostenibilità"
+        // },
+        // {
+        //   firstImage: "4.webp",
+        //   secondImage: "4b.webp",
+        //   titleProduct: "RELAXED FEET TEE UNISEX",
+        //   brandProduct: "Levi's",
+        //   discount: 50,
+        //   oldPrice: 29.99,
+        //   attribute: "Sostenibilità"
+        // },
+        // {
+        //   firstImage: "5.webp",
+        //   secondImage: "5b.webp",
+        //   titleProduct: "RELAXED FEET TEE UNISEX",
+        //   brandProduct: "Levi's",
+        //   discount: 50,
+        //   oldPrice: 29.99,
+        //   attribute: "Sostenibilità"
+        // },
+        // {
+        //   firstImage: "6.webp",
+        //   secondImage: "6b.webp",
+        //   titleProduct: "RELAXED FEET TEE UNISEX",
+        //   brandProduct: "Levi's",
+        //   discount: 50,
+        //   oldPrice: 29.99,
+        //   attribute: "Sostenibilità"
+        // }
+        // ]
       }
+    },
+    components:{
+      appCard,
     },
     methods:{
-      getImagePath(img){
-      return new URL(`../assets/${img}`, import.meta.url).href
-      },
-      getActualPrice(discount, oldPrice){
-        return oldPrice-(oldPrice/100*discount)
-      }
+     
     },
+    beforeMount(){
+      console.log(this.products);
+    }
 
   }
 </script>
@@ -78,28 +84,20 @@
       <div class="container">
         <div class="row">
 
-          <div v-for="product in products" class="card border-black col-4">
+          
               
-            <div class="card--image border-black">
-              <img :src="getImagePath(product.firstImage)" alt="">
-              <img :src="getImagePath(product.secondImage)" alt="">
-              <span class="favorites-icon"><i class="fa-solid fa-heart"></i></span>
-              <div class="badges white">
-                <span class="badge discount-percentage">-{{ product.discount }}&percnt;</span>
-                <span class="badge eco-badge">{{ product.attribute }}</span>
-              </div>
-            </div>
+            <appCard v-for="product in products" :id="product.id"
+            :frontImage="product.frontImage"
+            :backImage="product.backImage"
+            :brand="product.brand"
+            :name="product.name"
+            :price="product.price"
+            :isInFavorites="product.isInFavorites"
+            :badges="product.badges"
+            />
+           
 
-            <div class="card--titles">
-              <h4 class="brand-title">{{ product.brandProduct }}</h4>
-              <h2 class="product-name">{{ product.titleProduct }}</h2>
-              <div class="price">
-                <span class="price-text price-now">{{ getActualPrice(product.discount, product.oldPrice) }} &euro;
-                </span><span class="price-text price-old">{{ product.oldPrice }}&euro;</span>
-              </div>
-            </div>
-
-          </div>
+          
 
         </div>
       </div>
