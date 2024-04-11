@@ -6,7 +6,7 @@
       <span class="favorites-icon"> <i :class="[isInFavorites ? 'fa-solid' : 'fa-regular']" class="fa-heart">
       </i></span>
       <div class="badges white">
-        <span v-if="checkValue('discount') !== -1" class="badge discount-percentage">{{ badge[checkValue('discount')] }}&percnt;</span>
+        <span v-if="checkValue('discount') !== -1" class="badge discount-percentage">-50&percnt;</span>
         <span v-if="checkValue('tag') !== -1" class="badge eco-badge">Sostenibilità</span>
       </div>
     </div>
