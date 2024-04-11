@@ -3,7 +3,8 @@
     <div class="card--image border-black">
       <img :src="getImagePath(frontImage)" alt="">
       <img :src="getImagePath(backImage)" alt="">
-      <span class="favorites-icon"><i class="fa-solid fa-heart"></i></span>
+      <span class="favorites-icon"> <i :class="'fa-solid' : isInFavorites === true ? 'fa-regular'}" class="fa-heart">
+      </i></span>
       <div class="badges white">
         <span class="badge discount-percentage">-50&percnt;</span>
         <span class="badge eco-badge">Sostenibilità</span>
@@ -35,7 +36,8 @@ export default {
     },
     getActualPrice(discount, oldPrice){
       return oldPrice-(oldPrice/100*discount)
-    }
+    },
+
   },
   props:{
     id: Number,
@@ -48,7 +50,7 @@ export default {
     badges: Array,
   },
   mounted(){
-    console.log(this.id);
+    console.log(this.badges);
   }
 }
 
