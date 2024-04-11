@@ -6,8 +6,8 @@
       <span class="favorites-icon"> <i :class="[isInFavorites ? 'fa-solid' : 'fa-regular']" class="fa-heart">
       </i></span>
       <div class="badges white">
-        <span class="badge discount-percentage">-50&percnt;</span>
-        <span class="badge eco-badge">Sostenibilità</span>
+        <span v-if="checkValue('discount') !== -1" class="badge discount-percentage">{{ badge[checkValue('discount')] }}&percnt;</span>
+        <span v-if="checkValue('tag') !== -1" class="badge eco-badge">Sostenibilità</span>
       </div>
     </div>
     <div class="card--titles">
@@ -27,7 +27,11 @@
 export default {
   data(){
     return{
-
+      pino: {
+        pasta: true,
+        ciccia: false,
+        capra: true
+      }
     }
   },
   methods:{
@@ -37,7 +41,18 @@ export default {
     getActualPrice(discount, oldPrice){
       return oldPrice-(oldPrice/100*discount)
     },
+    checkValue(value){
+      // potrei ciclare l'array e se trova un certo tag potrebbe popolare un variabile con l'index a -1
+      let index= -1;
+      
+      for(let i=0; i<this.badges.length; i++){
+        if(Object.values(this.badges[i]).includes(value)){
+          index = i;
+        }
+      }
 
+      return index;
+    },
   },
   props:{
     id: Number,
@@ -50,7 +65,7 @@ export default {
     badges: Array,
   },
   mounted(){
-    console.log(this.badges);
+    console.log();
   }
 }
 

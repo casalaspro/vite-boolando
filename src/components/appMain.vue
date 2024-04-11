@@ -72,7 +72,7 @@
      
     },
     beforeMount(){
-      console.log(this.products);
+      // console.log(this.products);
     }
 
   }
