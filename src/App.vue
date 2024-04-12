@@ -2,6 +2,7 @@
 import appHeader from './components/appHeader.vue';
 import appMain from './components/appMain.vue';
 import appFooter from './components/appFooter.vue';
+import { store } from './store.js'
 
 export default {
   components :{
@@ -11,12 +12,12 @@ export default {
   },
   data(){
     return{
-
+      store: store,
     }
 
   },
   mounted(){
-
+    console.log(store.pino);
   },
   methods: {
 

@@ -1,12 +1,13 @@
 <script>
 
   import appCard from "./appCard.vue";
-  import dbProduct from "../assets/db.json";
+  // import dbProduct from "../assets/db.json";
+  import { store } from '../store.js'
 
   export default{
     data(){
       return{
-        products: dbProduct.products,
+        products: store.products,
         // products: [
         // {
         //   firstImage: "1.webp",
@@ -71,8 +72,8 @@
     methods:{
      
     },
-    beforeMount(){
-      // console.log(this.products);
+    mounted(){
+      console.log("da appMain" + store.pino)
     }
 
   }
