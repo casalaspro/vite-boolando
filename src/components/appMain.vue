@@ -73,7 +73,10 @@
      
     },
     mounted(){
-      console.log("da appMain" + store.pino)
+      console.log(store);
+    },
+    created(){
+      
     }
 
   }
