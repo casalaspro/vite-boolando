@@ -19,10 +19,13 @@
       </div>
     </div>
   </div>
+
+  <appModal/>
 </template>
 
 
 <script>
+import appModal from './appModal.vue'
 
 export default {
   data(){
@@ -33,6 +36,9 @@ export default {
         capra: true
       }
     }
+  },
+  components:{
+    appModal
   },
   methods:{
     getImagePath(img){
